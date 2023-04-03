@@ -6,16 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springboot.app.models.dao.IPuertoDao;
+import com.springboot.app.models.dao.ITipoEntregaDao;
 import com.springboot.app.models.entity.Puerto;
+import com.springboot.app.models.entity.TipoEntrega;
 @Service
 public class PuertoServiceImpl implements IPuertoService {
 
 	@Autowired
 	public IPuertoDao puertoDao;
 	
+	@Autowired
+	public ITipoEntregaDao tipoEntregaDao;
+	
 	
 	@Override
-	public List<Puerto> finAll() {
+	public List<Puerto> findAll() {
 		
 		return (List<Puerto>) puertoDao.findAll();
 	}
@@ -37,5 +42,13 @@ public class PuertoServiceImpl implements IPuertoService {
 		puertoDao.deleteById(id);
 		
 	}
+
+	@Override
+	public List<TipoEntrega> tipoentregafindAll() {
+		
+		return (List<TipoEntrega>) tipoEntregaDao.findAll();
+	}
+
+	
 
 }

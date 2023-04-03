@@ -24,6 +24,7 @@
 							<th>id</th>
 							<th>nombre</th>
 							<th>placa</th>
+							<th>Tipo Entrega</th>
 							<th>Editar</th>
 							<th>Eliminar</th>
 
@@ -35,6 +36,7 @@
 							<td th:text="${vehiculo.id}"></td>
 							<td th:text="${vehiculo.nombre}"></td>
 							<td th:text="${vehiculo.placa}"></td>
+							<td th:text="${vehiculo.tipoEntrega.nombre}"></td>
 							<td><a class="btn btn-primary btn-xs"
 								th:href="@{/formVehiculo/} + ${vehiculo.id}">editar</a></td>
 							<td><a class="btn btn-danger btn-xs"

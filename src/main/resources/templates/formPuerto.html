@@ -28,6 +28,23 @@
 				<form th:action="@{/formPuerto}" th:object="${puerto}" method="post" enctype="multipart/form-data" >
 
 					<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="tipoEntregas">Tipo Entrega</label>
+						<div class="col-sm-6">
+
+							<select class="form-control" id="tipoEntrega" name="tipoEntrega.id">
+								<option th:each="tipoEntrega : ${tipoEntregas}" th:value="${tipoEntrega.idEntrega}"
+									th:text="${tipoEntrega.nombre}" th:selected="${tipoEntrega }">Cliente
+									1</option>
+
+							</select>
+
+
+						</div>
+					</div>
+					
+					
+					
+					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Nombre Puerto</label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{nombre}" class="form-control"

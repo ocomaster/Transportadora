@@ -19,6 +19,8 @@ public class TipoEntrega implements Serializable {
 	
 	@NotEmpty(message = "Digite Tipo de Entrega")
 	private String nombre;
+	
+	
 
 	public TipoEntrega() {
 	}

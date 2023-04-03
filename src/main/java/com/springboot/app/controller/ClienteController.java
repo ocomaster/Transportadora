@@ -26,7 +26,7 @@ public class ClienteController {
 	
 	
 	//Funcion que envia a la vista Listar para listar los clientes
-	@RequestMapping(value = {"/listarClientes"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/listarClientes", "/"}, method = RequestMethod.GET)
 	public String listar(Model model) {
 		
 		model.addAttribute("titulo", "Listado de clientes");

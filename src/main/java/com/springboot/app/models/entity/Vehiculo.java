@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -27,12 +29,21 @@ public class Vehiculo implements Serializable {
 	@NotEmpty(message = "Debe digitar la placa del vehiculo")
 	@NotNull
 	private String placa;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_tipoentrega")
+	private TipoEntrega tipoEntrega;
+	
+	
 
-	public Vehiculo(Long id, @NotEmpty(message = "Debe digitar nombre del vehiculo") String nombre,
-			@NotEmpty(message = "Debe digitar la placa del vehiculo") @NotNull String placa) {
-		this.idVehiculo = id;
+	
+
+	public Vehiculo(Long idVehiculo, @NotEmpty(message = "Debe digitar nombre del vehiculo") String nombre,
+			@NotEmpty(message = "Debe digitar la placa del vehiculo") @NotNull String placa, TipoEntrega tipoEntrega) {
+		this.idVehiculo = idVehiculo;
 		this.nombre = nombre;
 		this.placa = placa;
+		this.tipoEntrega = tipoEntrega;
 	}
 
 	public Vehiculo() {
@@ -64,6 +75,22 @@ public class Vehiculo implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Long getIdVehiculo() {
+		return idVehiculo;
+	}
+
+	public void setIdVehiculo(Long idVehiculo) {
+		this.idVehiculo = idVehiculo;
+	}
+
+	public TipoEntrega getTipoEntrega() {
+		return tipoEntrega;
+	}
+
+	public void setTipoEntrega(TipoEntrega tipoEntrega) {
+		this.tipoEntrega = tipoEntrega;
 	}
 	
 	

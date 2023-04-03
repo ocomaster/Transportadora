@@ -25,7 +25,7 @@
 					</ul>
 				</div>
 
-				<form th:action="@{/crear}" th:object="${entrega}" method="post"
+				<form th:action="@{/factura/form}" th:object="${entrega}" method="post"
 					enctype="multipart/form-data">
 
 
@@ -57,7 +57,6 @@
 
 							</select>
 
-
 						</div>
 					</div>
 
@@ -74,6 +73,82 @@
 
 
 						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="vehiculos">Vehiculo</label>
+						<div class="col-sm-6">
+
+							<select class="form-control" id="vehiculo" name="vehiculo">
+								<option th:each="vehiculo: ${vehiculos}" th:value="${vehiculo.id}"
+									th:text="${vehiculo.nombre}" th:selected="${vehiculo }">Cliente
+									1</option>
+
+							</select>
+
+
+						</div>
+					</div>
+					
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="tipoEntregas">Tipo de Entrega</label>
+						<div class="col-sm-6">
+
+							<select class="form-control" id="tipoEntrega" name="tipoEntrega">
+								<option th:each="tipoEntrega: ${tipoEntregas}" th:value="${tipoEntrega.idEntrega}"
+									th:text="${tipoEntrega.nombre}" th:selected="${tipoEntrega }">Cliente
+									1</option>
+
+							</select>
+
+
+						</div>
+					</div>
+					
+					
+						<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Cantidad</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{cantidad}" class="form-control"
+								th:errorclass="'form-control alert-danger'"> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}"></small>
+						</div>
+
+					</div>
+					
+						<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Precio de Envio</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{precioEnvio}" class="form-control"
+								th:errorclass="'form-control alert-danger'"> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('precioEnvio')}" th:errors="*{precioEnvio}"></small>
+						</div>
+
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label"># Guia</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{guia}" class="form-control"
+								th:errorclass="'form-control alert-danger'"> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('guia')}" th:errors="*{guia}"></small>
+						</div>
+
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Fecha de Entrega</label>
+						<div class="col-sm-6">
+							<input type="date" th:field="*{fechaEntrega}" class="form-control"
+								th:errorclass="'form-control alert-danger'"> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('fechaEntrega')}" th:errors="*{fechaEntrega}"></small>
+						</div>
+
 					</div>
 
 

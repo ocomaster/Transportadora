@@ -13,7 +13,7 @@
 
 	<header th:fragment="header">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="#">Navbar</a>
+			<a class="navbar-brand" href="#">Transportadora</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -21,9 +21,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
-					<li class="nav-item active"><a class="nav-link" href="#">Home
-							<span class="sr-only">(current)</span>
-					</a></li>
+				
 					<li class="nav-item"><a class="nav-link" th:href="@{/listarClientes}">Clientes</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" th:href="@{/listarTipoProducto}">Tipo Productos</a>
@@ -31,6 +29,11 @@
 					<li class="nav-item"><a class="nav-link" th:href="@{/listarVehiculos}">Vehiculos</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" th:href="@{/listarPuertos}">Puerto</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/listarTipoEntregas}">Tipo Entrega</a>
+					</li>
+					
+					<li class="nav-item"><a class="nav-link" th:href="@{/factura/form}">Realizar Envio</a>
 					</li>
  					
 					
@@ -60,9 +63,9 @@
 	. 
 	</p>
 	<p>
-	 Este proyecto fue desarrollado en IDE Eclipse + Spring Plugins (STS Spring Tool),Aprendizaje Brayan Marulanda.
+	 Este proyecto fue desarrollado en IDE Eclipse + Spring Plugins, Aprendizaje Brayan Alexis Marulanda Vargas.
 	<br>
-	 © Company 2023, Inc. Todos los derechos reservados. Términos de uso y privacidad.
+	 © Realizacion Abril 2023 
 	<br>
 	</p>
 	
