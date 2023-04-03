@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"> </header>
+
+	<div class="container py-4">
+
+		<div class="card bg-light">
+
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+
+				<h4 class="card-title">
+					<a th:href="@{/formTipoEntrega}" class="btn btn-primary btn-xs">Crear Tipo Entrega </a>
+				</h4>
+
+				<table class="table table-striped ">
+					<thead class="table-dark">
+						<tr>
+							<th>id</th>
+							<th>nombre</th>
+							<th>Editar</th>
+							<th>Eliminar</th>
+
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:each="tipoEntrega : ${tipoEntregas}">
+							<td th:text="${tipoEntrega.idEntrega}"></td>
+							<td th:text="${tipoEntrega.nombre}"></td>
+							<td><a class="btn btn-primary btn-xs"
+								th:href="@{/formTipoEntrega/} + ${tipoEntrega.idEntrega}">editar</a></td>
+							<td><a class="btn btn-danger btn-xs"
+								th:href="@{/eliminarTipoEntrega/} + ${tipoEntrega.idEntrega}" th:text="Eliminar"
+								onclick="return confirm('Estas seguro que desea eliminar?')"></a>
+							</td>
+
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+
+		</div>
+	</div>
+
+
+	<footer th:replace="layout/layout :: footer"> </footer>
+
+</body>
+
+</html>

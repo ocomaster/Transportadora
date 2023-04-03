@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"> </header>
+
+
+
+
+	<div class="container py-4">
+
+
+		<div class="card bg-dark  text-white">
+
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+
+
+				<!--se muestran los campos faltantes en un solo contenedor  -->
+				<div th:object="${entrega}" th:remove="tag">
+					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+					</ul>
+				</div>
+
+				<form th:action="@{/crear}" th:object="${entrega}" method="post"
+					enctype="multipart/form-data">
+
+
+
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="clientes">Cliente</label>
+						<div class="col-sm-6">
+
+							<select class="form-control" id="cliente" name="cliente">
+								<option th:each="cliente : ${clientes}" th:value="${cliente.id}"
+									th:text="${cliente.nombre}" th:selected="${cliente }">Cliente
+									1</option>
+
+							</select>
+
+
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="productos">Tipo
+							Producto</label>
+						<div class="col-sm-6">
+
+							<select class="form-control" id="producto" name="producto">
+								<option th:each="producto: ${productos}"
+									th:value="${producto.id}" th:text="${producto.nombre}"
+									th:selected="${producto }">Cliente 1</option>
+
+							</select>
+
+
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="puertos">Puertos</label>
+						<div class="col-sm-6">
+
+							<select class="form-control" id="puerto" name="puerto">
+								<option th:each="puerto: ${puertos}" th:value="${puerto.id}"
+									th:text="${puerto.nombre}" th:selected="${puerto }">Cliente
+									1</option>
+
+							</select>
+
+
+						</div>
+					</div>
+
+
+					<input type="submit" value="Crear Cliente" class="btn btn-primary">
+
+					<input type="hidden" th:field="*{id}" />
+
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+
+</body>
+
+
+</html>
